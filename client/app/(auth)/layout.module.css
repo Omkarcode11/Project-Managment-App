@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  overflow: hidden;
+}
+
+.welcomeSVG {
+  width: 60vw;
+  object-fit: cover;
+  height: 99.5vh;
+}
+
+.welcomeSVGContainer {
+  height: 100vh;
+}
