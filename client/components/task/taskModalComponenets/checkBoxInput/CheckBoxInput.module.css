@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid #E2E2E2;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    margin: 0.4rem 0rem;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%; /* Optional if you need full width */
+}
+
+.textInput {
+    border: none;
+    outline: none;
+    width: 80%;
+}
+
+.delete {
+    margin-left: auto; /* This pushes the delete icon to the end */
+}

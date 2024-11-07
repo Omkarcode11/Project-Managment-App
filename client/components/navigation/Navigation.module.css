@@ -2,7 +2,6 @@
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-    width: 15vw;
     height: 100vh;
     border-right: 1px solid #EDF5FE
 }

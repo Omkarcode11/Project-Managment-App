@@ -1,0 +1,16 @@
+.LOW ,.MID, .HIGH {
+    background-color: red;
+ }
+
+ .priorityContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.5rem;
+    font-weight: 400;
+    color: #707070;
+   
+  }
+  
+

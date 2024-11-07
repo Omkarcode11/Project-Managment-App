@@ -1,0 +1,25 @@
+.container {
+  padding: 1rem 0rem;
+}
+
+.checkBoxContainer {
+  display: flex;
+  align-items: first baseline;
+  gap: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #e2e2e2;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0rem;
+}
+
+.task {
+  font-weight: 100;
+}
+
+
+.taskList {
+    max-height: 15rem;
+    overflow-x: scroll;
+}

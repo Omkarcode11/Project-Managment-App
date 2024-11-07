@@ -1,4 +1,14 @@
 .container {
     display: flex;
     flex-flow: row;
+  background-color: white;
+
+}
+
+.rightSection {
+    width: 80vw;
+}
+
+.leftSection {
+    width: 20vw;
 }

@@ -21,7 +21,7 @@ function Navigation({}: Props) {
           <p>Pro Manager</p>
         </h4>
         <nav className={classes.navList}>
-          <NavLink path="/" icon={boardSVG}>
+          <NavLink path="/board" icon={boardSVG}>
             Board
           </NavLink>
           <NavLink path="/analytics" icon={analyticsSVG}>

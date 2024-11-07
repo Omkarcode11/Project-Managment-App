@@ -3,6 +3,7 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import classes from "./layout.module.css";
 import Navigation from "@/components/navigation/Navigation";
+import { ReduxProvider } from "./provider";
 
 const openSans = Open_Sans({
   weight: "500",
@@ -21,12 +22,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.className}>
-        <div className={classes.container}>
-          <div className={classes.leftSection}>
-            <Navigation />
+        <ReduxProvider>
+          <div id="modal"></div>
+          <div className={classes.container}>
+            <div className={classes.leftSection}>
+              <Navigation />
+            </div>
+            <div className={classes.rightSection}>{children}</div>
           </div>
-          <div className={classes.rightSection}>{children}</div>
-        </div>
+        </ReduxProvider>
       </body>
     </html>
   );

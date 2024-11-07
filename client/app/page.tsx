@@ -5,12 +5,14 @@ import { useEffect } from "react";
 export default function Home() {
   let router = useRouter()
   useEffect(()=>{
-    if(!localStorage.getItem('token')){
-        // router.push('/login')
-    }
+    // if(!localStorage.getItem('token')){
+    //     // router.push('/login')
+    // }else {
+        router.push('/board')
+    // }
    
   })
   return (
-    <>Board</>
+    <div></div>
   );
 }

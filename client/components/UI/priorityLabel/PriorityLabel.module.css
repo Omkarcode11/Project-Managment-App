@@ -1,0 +1,25 @@
+.priorityContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  align-items: center;
+  font-size: 0.5rem;
+  font-weight: 400;
+  color: #707070;
+  padding: 0.3rem 0.6rem;
+ 
+}
+
+.priorityColor {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+}
+
+
+.activePriority {
+ /* Example active styling */
+  background-color: #EEECEC;
+  border-radius: 0.3rem;
+
+}

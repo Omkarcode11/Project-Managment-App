@@ -1,0 +1,19 @@
+.container {
+    position: relative;
+}
+
+.tooltip{
+    position:absolute;
+    top: -2prem;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 300;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: black;
+    color: white;
+    
+}
+
