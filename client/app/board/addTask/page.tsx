@@ -14,10 +14,13 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   addCheckList,
   clearTask,
+  resetTask,
   setAssignee,
   setTitle,
 } from "@/redux/reducers/taskSlice";
 import { ChecklistItem, Task } from "@/types/Task";
+import { validateTask } from "@/utils/helper";
+import toast from "react-hot-toast";
 
 type Props = {};
 
@@ -55,6 +58,20 @@ function AddTask({}: Props) {
     dispatch(addCheckList());
   }
 
+  function handleSubmit() {
+    let res = validateTask(task);
+    if (!res.valid) {
+      toast.error(res.error);
+    } else {
+      toast.success("Task Added");
+      // let id =toast.loading("Loading...")
+      console.log(task);
+      dispatch(resetTask());
+      console.log(task);
+      router.back();
+    }
+  }
+
   useEffect(() => {
     dispatch(clearTask());
   }, []);
@@ -88,7 +105,9 @@ function AddTask({}: Props) {
         </div>
 
         <div>
-          <div>CheckList ({completedTaskCount}/{task.checkList.length})</div>
+          <div>
+            CheckList ({completedTaskCount}/{task.checkList.length})
+          </div>
           <ul className={classes.checkListItems}>
             {task.checkList.map((task: ChecklistItem) => (
               <CheckBoxInput
@@ -105,7 +124,6 @@ function AddTask({}: Props) {
             src={addSVG}
             width={15}
             height={15}
-            
             color="#767575"
             alt="add Icon"
           />
@@ -127,7 +145,11 @@ function AddTask({}: Props) {
             <button type="button" className={classes.cancel} onClick={onClose}>
               Cancel
             </button>
-            <button type="submit" className={classes.save}>
+            <button
+              type="button"
+              className={classes.save}
+              onClick={handleSubmit}
+            >
               Save
             </button>
           </div>

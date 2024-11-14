@@ -1,35 +1,34 @@
-
 import React, { ChangeEvent, ReactNode } from "react";
 import peopleSVG from "@/public/people.svg";
 import Image from "next/image";
 import Filter from "@/components/filter/Filter";
-import classes from './layout.module.css'
+import classes from "./layout.module.css";
+import Link from "next/link";
 
 type Props = {
   children: ReactNode;
 };
 
 function BoardLayout({ children }: Props) {
-   let date = new Date()
+  let date = new Date();
   return (
     <div className={classes.container}>
-
       <div className={classes.headerContainer}>
-      <h3 className={classes.header}>Welcome ! Omkar</h3>
-      <h5 className={classes.date}>{date.toDateString().slice(4)}</h5>
+        <h3 className={classes.header}>Welcome ! Omkar</h3>
+        <h5 className={classes.date}>{date.toDateString().slice(4)}</h5>
       </div>
 
       <div className={classes.subHeaderContainer}>
         <div>
           <span className={classes.subHeader}>Board</span>
-          <span className={classes.addPeople}>
+          <Link href={"board/addPeople"} className={classes.addPeople}>
             <Image alt="Add People" src={peopleSVG} width={20} height={20} />{" "}
             Add People
-          </span>
+          </Link>
         </div>
 
         <div>
-          <Filter/>
+          <Filter />
         </div>
       </div>
       {children}

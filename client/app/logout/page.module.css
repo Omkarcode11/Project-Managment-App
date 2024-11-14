@@ -1,0 +1,32 @@
+.container {
+    padding: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+.logout{
+    display: block;
+    width: 100%;
+    margin: 0.4rem 0rem;
+    background-color: #17A2B8;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem;
+    color: white;
+    font-weight: 700;
+}
+.cancel{
+    display: block;
+    width: 100%;
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem;
+    color: red;
+    font-weight: 700;
+}

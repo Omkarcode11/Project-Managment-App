@@ -4,17 +4,28 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 let initialState: Task = {
   title: "",
   assignee: "",
-  checkList: [{ id: "sdf", status: false, task: "" }],
-  id: "oij",
+  checkList: [{ id: "" + Math.random() * 200, status: false, task: "" }],
+  id: "" + Math.random() * 400,
   priority: Priority.LOW,
-  stage: Stage.TO_DO,
-  date: "2024-05-05",
+  status: Stage.TO_DO,
+  dueDate: null,
 };
 
 let taskSlice = createSlice({
   initialState: initialState,
   name: "Task",
   reducers: {
+    resetTask: (state) => {
+      state.title = "";
+      state.assignee = "";
+      state.checkList = [
+        { id: "" + Math.random() * 200, status: false, task: "" },
+      ];
+      state.id = "" + Math.random() * 400;
+      state.priority = Priority.LOW;
+      state.status = Stage.TO_DO;
+      state.dueDate = null;
+    },
     setTitle: (state, action: PayloadAction<string>) => {
       state.title = action.payload;
     },
@@ -25,7 +36,7 @@ let taskSlice = createSlice({
       let id = String(state.checkList.length + 1);
       state.checkList.push({ id: id, status: false, task: "" });
     },
-    updateStatus: (
+    updateTodoStatus: (
       state,
       action: PayloadAction<{ id: string; status: boolean }>
     ) => {
@@ -35,7 +46,7 @@ let taskSlice = createSlice({
 
       state.checkList[index].status = action.payload.status;
     },
-    updateTask: (
+    updateTodoTask: (
       state,
       action: PayloadAction<{ id: string; task: string }>
     ) => {
@@ -45,7 +56,7 @@ let taskSlice = createSlice({
 
       state.checkList[index].task = action.payload.task;
     },
-    deleteCheckList: (state, action: PayloadAction<string>) => {
+    deleteTodo: (state, action: PayloadAction<string>) => {
       state.checkList = state.checkList.filter(
         (task) => task.id != action.payload
       );
@@ -55,7 +66,7 @@ let taskSlice = createSlice({
     },
 
     setDueDate: (state, action: PayloadAction<string>) => {
-      state.date = action.payload;
+      state.dueDate = action.payload;
     },
     clearTask: (state) => {
       state = initialState;
@@ -66,12 +77,13 @@ let taskSlice = createSlice({
 export const {
   addCheckList,
   setPriority,
-  deleteCheckList,
+  deleteTodo,
   setAssignee,
   setDueDate,
   setTitle,
-  updateStatus,
-  updateTask,
+  updateTodoStatus,
+  updateTodoTask,
+  resetTask,
   clearTask,
 } = taskSlice.actions;
 

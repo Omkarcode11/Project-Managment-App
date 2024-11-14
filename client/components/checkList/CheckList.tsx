@@ -1,22 +1,18 @@
 import React from "react";
 import classes from "./CheckList.module.css";
 import { ChecklistItem } from "@/types/Task";
-import { useAppSelector } from "@/redux/hooks";
 
 type Props = {
   checkList: ChecklistItem[];
 };
 
-function CheckList({}: Props) {
-  let checkList = useAppSelector((state) => state.task.checkList);
+function CheckList({ checkList }: Props) {
   let totalTasks = checkList.length;
   let completed = checkList.filter((ele) => ele.status == true).length;
-  console.log(checkList);
-
   return (
     <div className={classes.container}>
       <details>
-        <summary>Check List {`(${completed}/${checkList.length})`}</summary>
+        <summary>Check List {`(${completed}/${totalTasks})`}</summary>
         <div className={classes.taskList}>
           {checkList.map((task: ChecklistItem) => (
             <CheckBox

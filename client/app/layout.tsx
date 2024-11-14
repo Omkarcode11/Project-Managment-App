@@ -4,6 +4,7 @@ import "./globals.css";
 import classes from "./layout.module.css";
 import Navigation from "@/components/navigation/Navigation";
 import { ReduxProvider } from "./provider";
+import { Toaster } from "react-hot-toast";
 
 const openSans = Open_Sans({
   weight: "500",
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={openSans.className}>
         <ReduxProvider>
+          <Toaster />
           <div id="modal"></div>
           <div className={classes.container}>
             <div className={classes.leftSection}>

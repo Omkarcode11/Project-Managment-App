@@ -1,0 +1,23 @@
+.container {
+  width: 50%;
+  padding: 2rem;
+}
+
+.header {
+    padding: 1rem 0rem;
+}
+
+.formContainer {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+}
+
+.submit {
+  background-color: #17a2b8;
+  color: white;
+  border-radius: 1rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+}

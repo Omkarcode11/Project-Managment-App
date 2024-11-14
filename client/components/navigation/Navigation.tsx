@@ -8,7 +8,7 @@ import logo from "@/public/logo.svg";
 import boardSVG from "@/public/board.svg";
 import analyticsSVG from "@/public/analytics.svg";
 import settingsSVG from "@/public/settings.svg";
-import logoutSVG from '@/public/logout.svg'
+import logoutSVG from "@/public/logout.svg";
 
 type Props = {};
 
@@ -32,14 +32,11 @@ function Navigation({}: Props) {
           </NavLink>
         </nav>
       </div>
-      <h3 className={classes.logoutContainer}>
-        <Image src={logoutSVG} alt="Logout img" />
+      <NavLink path="/logout" icon={logoutSVG}>
         Logout
-        </h3>
+      </NavLink>
     </div>
   );
 }
 
 export default Navigation;
-
-
