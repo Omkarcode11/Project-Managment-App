@@ -6,6 +6,12 @@ const taskSchema = new Schema(
     title: {
       type: String,
       required: true,
+      trim: true,
+    },
+    description: {
+      type: String,
+      trim: true,
+      default: "",
     },
     status: {
       type: String,
@@ -29,9 +35,18 @@ const taskSchema = new Schema(
     dueDate: {
       type: Date,
       default: null,
+      validate: {
+        validator: function (date: Date) {
+          return !date || date > new Date();
+        },
+        message: "Due date must be in the future",
+      },
     },
   },
-  { timestamps: true, versionKey: false }
+  {
+    timestamps: true,
+    versionKey: false,
+  }
 );
 
 const Task = models.Task || model("Task", taskSchema);
