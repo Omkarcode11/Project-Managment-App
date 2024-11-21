@@ -58,7 +58,7 @@ let taskSlice = createSlice({
     },
     deleteTodo: (state, action: PayloadAction<string>) => {
       state.checkList = state.checkList.filter(
-        (task) => task.id != action.payload
+        (task) => task.id !== action.payload
       );
     },
     setPriority: (state, action: PayloadAction<Priority>) => {

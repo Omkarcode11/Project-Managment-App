@@ -4,11 +4,7 @@ import deleteSVG from "@/public/delete.svg";
 import classes from "./CheckBoxInput.module.css";
 import InputModal from "../inputAndLable/input/InputModal";
 import { useAppDispatch } from "@/redux/hooks";
-import {
-  deleteCheckList,
-  updateStatus,
-  updateTask,
-} from "@/redux/reducers/taskSlice";
+import { deleteTodo, updateTodoStatus, updateTodoTask } from "@/redux/reducers/taskSlice";
 
 type Props = {
   id: string;
@@ -21,16 +17,17 @@ function CheckBoxInput({ id, status, task }: Props) {
 
   function changeStatus(e: ChangeEvent<HTMLInputElement>) {
     let status = e.target.checked;
-    dispatch(updateStatus({ id, status }));
+    dispatch(updateTodoStatus({ id, status }));
   }
 
   function changeTask(e: ChangeEvent<HTMLInputElement>) {
     let task = e.target.value;
-    dispatch(updateTask({ id, task }));
+    dispatch(updateTodoTask({ id, task }));
   }
 
   function deleteTask() {
-    dispatch(deleteCheckList(id));
+    console.log('Deleting task with ID:', id);
+    dispatch(deleteTodo(id));
   }
 
   return (

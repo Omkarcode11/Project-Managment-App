@@ -15,19 +15,19 @@ function Board({}: Props) {
     <div className={classes.container}>
       <TaskContainer
         title="BACKLOG"
-        tasks={tasks.filter((task) => task.stage == Stage.BACKLOG)}
+        tasks={tasks.filter((task) => task.status == Stage.BACKLOG)}
       />
       <TaskContainer
         title="TO DO"
-        tasks={tasks.filter((task) => task.stage == Stage.TO_DO)}
+        tasks={tasks.filter((task) => task.status == Stage.TO_DO)}
       />
       <TaskContainer
         title="IN PROGRESS"
-        tasks={tasks.filter((task) => task.stage == Stage.IN_PROGRESS)}
+        tasks={tasks.filter((task) => task.status == Stage.IN_PROGRESS)}
       />
       <TaskContainer
         title="DONE"
-        tasks={tasks.filter((task) => task.stage == Stage.DONE)}
+        tasks={tasks.filter((task) => task.status == Stage.DONE)}
       />
     </div>
   );

@@ -2,6 +2,7 @@ import {
   ChecklistItem,
   Priority,
   Stage,
+  Task,
   ValidateTaskReturnType,
 } from "@/types/Task";
 
@@ -22,7 +23,7 @@ export function getInitials(str: string) {
     .join("");
 }
 
-export function validateTask(task: any): ValidateTaskReturnType {
+export function validateTask(task: Task): ValidateTaskReturnType {
   const errors: ValidateTaskReturnType = { valid: false, error: "" };
 
   // Check if id is a non-empty string
@@ -50,13 +51,13 @@ export function validateTask(task: any): ValidateTaskReturnType {
   }
 
   // Validate stage as a valid enum value
-  if (!Object.values(Stage).includes(task.stage)) {
+  if (!Object.values(Stage).includes(task.status)) {
     errors.error = `Invalid Stage.`;
     return errors;
   }
 
   // Validate checkList array
-  if (!Array.isArray(task.checkList) || task.checkList.length==0) {
+  if (!Array.isArray(task.checkList) || task.checkList.length == 0) {
     errors.error = "Invalid CheckList";
     return errors;
   } else {
